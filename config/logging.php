@@ -1,6 +1,7 @@
 <?php
 
 use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 
 return [
 
@@ -64,6 +65,22 @@ return [
             'handler' => StreamHandler::class,
             'with' => [
                 'stream' => 'php://stderr',
+            ],
+        ],
+
+        'realtime' => [
+            'driver' => 'monolog',
+            'handler' => \Shalvah\MonologPusher\PusherHandler::class,
+            'with' => [
+                'pusher' => [
+                    env('PUSHER_APP_KEY'),
+                    env('PUSHER_APP_SECRET'),
+                    env('PUSHER_APP_ID'),
+                    [
+                        'cluster' => env('PUSHER_APP_CLUSTER')
+                    ]
+                ],
+                'level' => Logger::DEBUG
             ],
         ],
 
