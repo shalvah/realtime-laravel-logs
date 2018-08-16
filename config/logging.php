@@ -84,6 +84,11 @@ return [
             ],
         ],
 
+        'realtime_stack' => [
+            'driver' => 'stack',
+            'channels' => ['single', 'realtime'],
+        ],
+
         'syslog' => [
             'driver' => 'syslog',
             'level' => 'debug',
