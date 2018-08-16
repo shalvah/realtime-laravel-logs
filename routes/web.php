@@ -18,3 +18,5 @@ Auth::routes();
 Route::redirect('/home', '/products')->name('home');
 
 Route::resource('products', 'ProductController')->middleware('auth');
+
+Route::view('logs', 'logs')->middleware('auth');
