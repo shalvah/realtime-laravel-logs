@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        Log::channel('realtime')->info('Someone is viewing all products!');
+        Log::channel('realtime')->info(request()->user()->name.' is viewing all products!');
         return view('products.index', ['products' => Product::all()]);
     }
 
@@ -48,7 +48,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        Log::channel('realtime')->debug("Someone is viewing the product with ID {$product->id}!");
+        Log::channel('realtime')->debug(request()->user()->name." is viewing the product with ID {$product->id}!");
         return view('products.show', ['product' => $product]);
     }
 
