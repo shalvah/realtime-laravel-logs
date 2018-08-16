@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
@@ -14,6 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+        Log::channel('realtime')->info('Someone is viewing all products!');
         return view('products.index', ['products' => Product::all()]);
     }
 
@@ -46,6 +48,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        Log::channel('realtime')->debug("Someone is viewing the product with ID {$product->id}!");
         return view('products.show', ['product' => $product]);
     }
 
