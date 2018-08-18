@@ -3,7 +3,7 @@
 Demo Laravel app to view logs in realtime using Pusher Channels and Laravel 5.6+ log channels
 
 
-[View tutorial]()
+[View tutorial](https://pusher.com/tutorials/live-logs-dashboard-laravel)
 
 ## Prerequisites
 - PHP >= 7.1.3
